@@ -52,11 +52,8 @@ Create a Notion Integration at https://www.notion.so/my-integrations and share b
 2. Create a new project on [Railway](https://railway.app)
 3. Connect your GitHub repository
 4. Add environment variables:
-   - `BOT_TOKEN` - Your bot token
-   - `CLIENT_ID` - Your application client ID
-   - `NOTION_TOKEN` - Your Notion integration token
-   - `NOTION_CHANNELS_DB` - ID of Channel Configurations database
    - `NOTION_CLAIMED_DB` - ID of Claimed Users database
+   - `ADMIN_USER_ID` - Admin Discord User ID (comma-separated for multiple: `ID1,ID2`)
 
 5. Deploy!
 

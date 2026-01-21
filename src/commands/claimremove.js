@@ -21,6 +21,15 @@ module.exports = {
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
     async execute(interaction) {
+        // Check if user is the admin
+        const adminUserIds = process.env.ADMIN_USER_ID ? process.env.ADMIN_USER_ID.split(',').map(id => id.trim()) : [];
+        if (adminUserIds.length > 0 && !adminUserIds.includes(interaction.user.id)) {
+            return interaction.reply({
+                content: '❌ You are not authorized to use this command.',
+                ephemeral: true
+            });
+        }
+
         const channel = interaction.options.getChannel('channel');
         const resetClaims = interaction.options.getBoolean('reset_claims') || false;
 

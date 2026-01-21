@@ -10,8 +10,8 @@ module.exports = {
 
     async execute(interaction) {
         // Check if user is the admin
-        const adminUserId = process.env.ADMIN_USER_ID;
-        if (adminUserId && interaction.user.id !== adminUserId) {
+        const adminUserIds = process.env.ADMIN_USER_ID ? process.env.ADMIN_USER_ID.split(',').map(id => id.trim()) : [];
+        if (adminUserIds.length > 0 && !adminUserIds.includes(interaction.user.id)) {
             return interaction.reply({
                 content: '❌ You are not authorized to use this command.',
                 ephemeral: true
